@@ -1,0 +1,48 @@
+@model RegistryViewModel
+@{
+    ViewData["Title"] = "Registrate";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Registry" asp-controller="User">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" autocomplete="off" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger" ></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger" ></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ConfirmPassword" class="form-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger" ></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="HelpPassword" class="form-label"></label>
+                <input asp-for="HelpPassword" class="form-control" />
+                <span asp-validation-for="HelpPassword" class="text-danger" ></span>
+            </div>
+
+
+            <button class="btn btn-outline-info">Registrate</button>
+            <a class="btn btn-outline-primary" asp-action="Login" asp-controller="User">Entrar al Sistema</a>
+
+        </form>
+    <div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}
