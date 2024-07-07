@@ -1,0 +1,24 @@
+@model KindModel
+
+@{
+    ViewData["Title"] = "Editar el tipo";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="KindEdit" asp-controller="Kind">
+    <input type="hidden" asp-for"Id">
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Name" placeholder="Nombre del tipo">
+        <label asp-for="Name">Nombre del tipo</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="textarea" class="form-control" asp-for="Description" rows="5">
+        <label asp-for="Description">Descripcion</label>
+    </div>
+
+    <button class="btn btn-outline-primary">Guardar</button>
+    <a class="btn btn-outline-secundary" asp-action="KindList" asp-controller="Kind">Regresar</a>
+</form>

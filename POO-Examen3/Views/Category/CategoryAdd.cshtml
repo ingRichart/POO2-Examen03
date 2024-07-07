@@ -1,0 +1,21 @@
+@model CategoryModel
+
+@{
+    ViewData["Title"] = "Alta de Categoría";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="CategoryAdd" asp-controller="Category">
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Name" placeholder="Nombre de la categoría">
+        <label asp-for="Name">Nombre de la categoría</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="textarea" class="form-control" asp-for="Description" rows="10">
+        <label asp-for="Description">Descripcion de la categoría</label>
+    </div>
+    <button class="btn btn-outline-primary">Guardar</button>
+    <a class="btn btn-outline-secundary" asp-action="CategoryList" asp-controller="Category">Regresar</a>
+</form>

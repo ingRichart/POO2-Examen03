@@ -1,0 +1,23 @@
+@model ToyModel
+
+@{
+    ViewData["Title"] = "Borrar el juguete";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-asp-controller="Toy" asp-action="ToyDeleted">
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Name" placeholder="Nombre del juguete" disabled>
+        <label asp-for="Name">Nombre del juguete</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="textarea" class="form-control" asp-for="Description" rows="5" disabled>
+        <label asp-for="Description">Descripcion</label>
+    </div>
+
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Borrar</button>
+    <a class="btn btn-secondary" asp-action="ToyList" asp-controller="Toy">Cancelar</a>
+</form>

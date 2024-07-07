@@ -1,0 +1,23 @@
+@model CategoryModel
+
+@{
+    ViewData["Title"] = "Borrar la Categoría";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-asp-controller="Category" asp-action="CategoryDeleted">
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Name" placeholder="Nombre de la categoría" disabled>
+        <label asp-for="Name">Nombre del Producto</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="textarea" class="form-control" asp-for="Description" rows="5" disabled>
+        <label asp-for="Description">Descripcion</label>
+    </div>
+
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Borrar</button>
+    <a class="btn btn-secondary" asp-action="CategoryList" asp-controller="Category">Cancelar</a>
+</form>

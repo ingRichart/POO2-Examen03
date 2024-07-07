@@ -1,0 +1,40 @@
+@* Colocar el model como una List<> *@
+@model List<KindModel>
+
+@{
+    ViewData["Title"] = "Lista de tipos";
+    int numero = 0;
+}
+
+<h1>@ViewData["Title"]</h1>
+<a class="btn btn-outline-primary" asp-action="KindAdd" asp-asp-controller="Kind">Agregar tipo</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+        {
+            numero++;
+        }
+            <tr>
+                <th scope="row">@numero
+                </th>
+                <td>@p.Name</td>
+                <td>@p.Description</td>
+                <td>
+                    <a class="btn btn-outline-info" asp-action="KindEdit" asp-controller="Kind" asp-route-id="@p.Id">Editar</a>
+                    <a class="btn btn-outline-danger" asp-action="KindDeleted" asp-controller="Kind" asp-route-id="@p.Id">Borrar</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
