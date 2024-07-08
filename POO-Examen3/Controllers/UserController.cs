@@ -43,7 +43,7 @@ namespace POO_Examen3.Controllers
 
             var user = new IdentityUser() 
             { 
-                UserName = model.UserName, 
+                UserName = model.Email, 
                 Email = model.Email, 
             };
 
@@ -77,16 +77,22 @@ namespace POO_Examen3.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginModel model)
         {
+            model.UserName = model.Email;
             if (!ModelState.IsValid)
             {
                 this._logger.LogWarning("MODELO NO VALIDO, FAVOR DE REVISAR ");
                 return View(model);
             }
 
+            // var user = new IdentityUser() 
+            // { 
+            //     UserName = model.UserName, 
+            //     Email = model.Email, 
+            // };
+
             var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.Remember, lockoutOnFailure: false);
             if (result.Succeeded)
             {
-                this._logger.LogWarning("NO SE REGISTRO ");
                 return RedirectToAction("Index", "Home");
             }
             else

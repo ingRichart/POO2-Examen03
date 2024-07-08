@@ -10,15 +10,12 @@ namespace POO_Examen3.Models
     {
         public LoginModel()
         {
-            UserName = string.Empty;
             Email = string.Empty;
             Password = string.Empty;
             Remember = false;
         }
 
-        [Required(ErrorMessage = "El campo {0} es requerido")]
-        [Display(Name = "Nombre de Usuario")]
-        public string UserName { get; set; }
+        public string? UserName { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es requerido")]
         [EmailAddress(ErrorMessage = "El campo debe ser un correo electrónico valido")]

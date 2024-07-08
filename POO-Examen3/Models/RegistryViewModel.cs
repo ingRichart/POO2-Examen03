@@ -10,15 +10,11 @@ namespace POO_Examen3.Models
     {
         public RegistryModel()
         {
-            UserName = string.Empty;
             Email = string.Empty;
             Password = string.Empty;
             ConfirmPassword = string.Empty;
             HelpPassword = string.Empty;
         }
-        [Required(ErrorMessage = "El campo {0} es requerido")]
-        public string UserName { get; set; }
-
         [Required(ErrorMessage = "El campo {0} es requerido")]
         [EmailAddress(ErrorMessage = "El campo debe ser un correo electrónico valido")]
         public string Email { get; set; }
