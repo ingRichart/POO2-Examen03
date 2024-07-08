@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using POO_Examen3.Models;
 
 namespace POO_Examen3.Controllers
@@ -161,6 +162,30 @@ namespace POO_Examen3.Controllers
             return RedirectToAction("ChangePassword",
                 routeValues: new { confirmed = "El password se ha cambiado con éxito" });
 
+        }
+
+
+
+        public async Task<IActionResult> UserList()
+        {
+            var userList =  await this._context.Users.ToListAsync();
+            var userRoleList = await this._context.UserRoles.ToListAsync();
+
+            var userDtoList = userList.GroupJoin(userRoleList, u => u.Id, ur => ur.UserId, 
+                (u, ur) => new UserModel  {
+                    User = u.UserName,
+                    Email = u.Email,
+                    Confirmed = u.EmailConfirmed,
+                    IsAdmin = ur.Any(ur => ur.UserId == u.Id)
+                })
+                .OrderBy(u => u.User)
+                .ToList();
+
+
+            var modelo = new UserListModel();
+            modelo.UserList = userDtoList;
+
+            return View(modelo);
         }
 
     }
