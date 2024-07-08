@@ -6,32 +6,33 @@ using System.Threading.Tasks;
 
 namespace POO_Examen3.Models
 {
-    public class RegistryModel
+    public class ChangePasswordModel
     {
-        public RegistryModel()
+        public ChangePasswordModel()
         {
-            UserName = string.Empty;
-            Email = string.Empty;
-            Password = string.Empty;
+            OldPassword = string.Empty;
+            NewPassword = string.Empty;
             ConfirmPassword = string.Empty;
             HelpPassword = string.Empty;
         }
-        [Required(ErrorMessage = "El campo {0} es requerido")]
-        public string UserName { get; set; }
-
-        [Required(ErrorMessage = "El campo {0} es requerido")]
-        [EmailAddress(ErrorMessage = "El campo debe ser un correo electrónico valido")]
-        public string Email { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es requerido")]
         [DataType(DataType.Password)]
-        public string Password { get; set; }
-        
+        [Display(Name = "Password Actual")]
+        public string OldPassword { get; set; }
         [Required(ErrorMessage = "El campo {0} es requerido")]
         [DataType(DataType.Password)]
+        [Display(Name = "Nuevo Password")]
+        public string NewPassword { get; set; }
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirmar Nuevo Password")]
+        [Compare("NewPassword", ErrorMessage = "El campo {0} y el campo {1} no coincide")]
         public string ConfirmPassword { get; set; }
 
-        [Display(Name = "Ayuda para recordar el password")]
         public string HelpPassword { get; set; }
+
+        public string? MessageConfirmed { get; set; }
+
     }
 }

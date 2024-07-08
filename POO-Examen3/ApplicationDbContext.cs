@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using POO_Examen3.Entities;
 
-namespace PruebaEntityFrameworkCore
+namespace POO_Examen3
 {
     public class ApplicationDbContext : IdentityDbContext
     {

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
+using POO_Examen3;
 using PruebaEntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
