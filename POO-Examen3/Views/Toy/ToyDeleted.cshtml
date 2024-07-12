@@ -17,6 +17,13 @@
         <label asp-for="Description">Descripcion</label>
     </div>
 
+    <div class="mb-3">
+        <select class="form-select" asp-for="CategoryId" asp-items="@Model.CategoryList" disabled>
+            <option>Seleccionar proveedor</option>
+        </select>
+        <span asp-validation-for="CategoryId" class="text-danger" ></span>
+    </div>
+
     <input type="hidden" asp-for="Id" />
     <button type="submit" class="btn btn-danger">Borrar</button>
     <a class="btn btn-secondary" asp-action="ToyList" asp-controller="Toy">Cancelar</a>

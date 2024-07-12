@@ -15,11 +15,12 @@
             <th scope="col">#</th>
             <th scope="col">Nombre</th>
             <th scope="col">Descripción</th>
+            <th scope="col">Categoría</th>
             <th scope="col">Acciones</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var p in Model)
+        @foreach (var toyModel in Model)
         {
         {
             numero++;
@@ -27,11 +28,12 @@
             <tr>
                 <th scope="row">@numero
                 </th>
-                <td>@p.Name</td>
-                <td>@p.Description</td>
+                <td>@toyModel.Name</td>
+                <td>@toyModel.Description</td>
+                <td>@toyModel.CategoryName</td>
                 <td>
-                    <a class="btn btn-outline-info" asp-action="ToyEdit" asp-controller="Toy" asp-route-id="@p.Id">Editar</a>
-                    <a class="btn btn-outline-danger" asp-action="ToyDeleted" asp-controller="Toy" asp-route-id="@p.Id">Borrar</a>
+                    <a class="btn btn-outline-info" asp-action="ToyEdit" asp-controller="Toy" asp-route-id="@toyModel.Id">Editar</a>
+                    <a class="btn btn-outline-danger" asp-action="ToyDeleted" asp-controller="Toy" asp-route-id="@toyModel.Id">Borrar</a>
                 </td>
             </tr>
 

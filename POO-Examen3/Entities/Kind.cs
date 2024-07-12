@@ -7,7 +7,8 @@ namespace POO_Examen3.Entities
 {
     public class Kind : BaseEntity
     {
-        
-
+        public Kind()
+        {
+        }
     }
 }
