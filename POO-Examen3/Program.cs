@@ -22,7 +22,7 @@ builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddDbContext<ApplicationDbContext>(opciones 
- => opciones.UseNpgsql("name=Connection"));
+ => opciones.UseSqlServer("name=Connection"));
 
   builder.Services.AddAuthentication();
 
